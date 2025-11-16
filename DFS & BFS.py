@@ -1,7 +1,7 @@
 #---------- DFS -------------#
 
 def dfs(graph,start):
-    visited = {}
+    visited = set()
     stack = [start]
 
     while stack:
@@ -9,14 +9,14 @@ def dfs(graph,start):
 
         if vertex not in visited:
             visited.add(vertex)
-            stack.extend(graph[vertex]-visited)
+            stack.extend([v for v in graph[vertex] if v not in visited])
 
     return visited
 
 #------------------ BFS ---------------------------#
  
 def bfs(graph,start):
-    visited = {}
+    visited = set()
     queue = [start]
 
     while queue:
@@ -24,8 +24,7 @@ def bfs(graph,start):
 
         if vertex not in visited:
             visited.add(vertex)
-            for i in graph[vertex]:
-                queue.append(i)
+            queue.extend([v for v in graph[vertex] if v not in visited])
 
     return visited
 
