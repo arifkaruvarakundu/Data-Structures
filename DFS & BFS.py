@@ -16,7 +16,7 @@ def dfs(graph,start):
 #------------------ BFS ---------------------------#
  
 def bfs(graph,start):
-    visited = []
+    visited = {}
     queue = [start]
 
     while queue:
